@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.data.repository.query.Param;
 
 import com.rubypaper.Member;
 
@@ -19,7 +20,9 @@ public interface MemberMapper {
 	
     @Select("SELECT * FROM member ORDER BY seq DESC")
 	public List<Member> getMemberList();
-	
+    
+    @Select("SELECT * FROM member WHERE id = #{id}")
+    Member getMemberById(String id);
 	
 	
 	

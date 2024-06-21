@@ -4,7 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import lombok.Builder;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 
@@ -15,6 +15,8 @@ public class Member {
 	@GeneratedValue
 	public int seq;
 	
+	@NotNull
+	 @Column(nullable = false, unique = true)
 	private String id;
 	private String pw;
 	private String name;
