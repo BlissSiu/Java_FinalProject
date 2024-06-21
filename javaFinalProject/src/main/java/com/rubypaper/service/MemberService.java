@@ -17,6 +17,7 @@ public class MemberService {
 	
     public void registerMember(MemberDTO memberDTO) {
         Member member = new Member();
+        /*
         member.setId(memberDTO.getUsername());
         member.setPw(memberDTO.getPassword());
         member.setName(memberDTO.getName());
@@ -24,6 +25,7 @@ public class MemberService {
         member.setPhone(memberDTO.getPhone());
         member.setAddress(memberDTO.getAddress());
         member.setBirth(memberDTO.getYear() +  memberDTO.getMonth() + memberDTO.getDay());
+        */
 
         memberMapper.insertMember(member);
     }
