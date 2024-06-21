@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/signup.css" />
+    <title>signup page</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="signup-header">
+            <div class="signup--title">회원가입</div>
+        </header>
+
+        <form action="/join" method="post" class="signup-form">
+            <ul>
+                <div class="form"><li> 아이디(이메일)</li> <input type="text" name="username" class="input1" />    </div>
+                <div class="form"><li> 비밀번호</li>        <input type="password" name="password" class="input1" /> </div>
+                <div class="form"><li> 비밀번호 확인</li>   <input type="password" name="passwordConfirm" class="input1"/>    </div>
+                <div class="form"><li> 이름/성별</li>  <input type="text" name="name" class="input1" /> <div class="radio"> <input type="radio" class="gender" name="gender" value="남"/>남<input type="radio" class="gender" name="gender" value="여"/>여 </div></div>
+                <div class="form"><li> 휴대폰</li>    <input type="text" name="phone" class="input1" placeholder="-빼고 입력"/></div>
+                <div class="form"><li> 생년월일</li> <input type="text" name="year" class="year" placeholder="년도(4자리)"/> <input type="text" name="month" class="mm" placeholder="월" /> <input type="text" name="day" class="mm" placeholder="일"/></div>
+                <div class="form"><li> 주소</li> <input type="text" name="address" class="input1" /> </div>
+            </ul>
+            <input type="submit"  value="가입하기"/>
+        </form>
+    </div>
+</body>
+</html>

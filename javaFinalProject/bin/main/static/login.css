@@ -1,5 +1,9 @@
 @import "reset.css";
 
+.wrapper{
+	width: 800px;
+}
+
 .yuhan--logo {
 	margin-top: 90px;
 	text-align: center;
