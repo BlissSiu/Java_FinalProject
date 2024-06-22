@@ -1,24 +1,42 @@
 <!DOCTYPE html>
-<html lang="ko">
-	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="main.css" />
-		<title>Title</title>
-	</head>
-	<body>
-		<header>
-			<div class="yuhan--logo">로고</div>
-			<div class="mypage">내 정보</div>
-		</header>
-		
-		<nav>
-			<ul>
-				<li><a href="#">예약하기</a></li>
-				<li><a href="#">예약확인</a></li>
-				<li><a href="#"></a></li>
-			</ul>
-		</nav>
-	
-		<footer>유한 기말</footer>	
-	</body>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/main.css" />
+    <title>Title</title>
+</head>
+<body>
+<div class="wrapper">
+<header>
+        <div class="header"><a href="/main">메인페이지	</a></div>
+        <div class="header">
+            <span class="username" th:text="${session.username} ? ${session.username + ' 님'} : ''">
+			</span>
+			<a href="/myInfo">내정보</a>
+        </div>
+
+</header>
+
+<nav>
+    <div class="container">
+        <ul>
+            <li><a href="/booking">예약하기</a></li>
+            <li><a href="/bookingchecked">예약확인</a></li>
+            <!-- 추가적인 메뉴 아이템들 -->
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 본문 내용 -->
+</div>
+
+<footer>
+    <div class="container">
+        <!-- 푸터 내용 -->
+    </div>
+</footer>
+</div>
+
+</body>
 </html>

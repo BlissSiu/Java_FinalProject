@@ -6,6 +6,19 @@
     <title>예약 페이지</title>
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.0/main.min.css" rel="stylesheet">
     <style>
+		header {
+			background-color: burlywood;
+			font-size: 30px;
+			margin-bottom: 30px;
+			display: flex;
+			justify-content: space-between;
+		}
+		
+		h2 {
+			font-size: 40px;
+			text-align: center;
+			padding-bottom: 20px;
+		}
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
@@ -29,14 +42,23 @@
             font-weight: bold;
             margin-bottom: 10px;
         }
+		.btn {
+			text-align: center;
+		}
     </style>
 </head>
 <body>
+	<header>
+		<div class="header"><a href="/main">메인페이지	</a></div>
+	    <div class="header">
+	        <span class="username" th:text="${session.username} ? ${session.username + ' 님'} : ''"></span>
+	        <a href="/myinfo">내정보</a>
+	    </div>   
+	</header>
     <h1>예약 페이지</h1>
-    <div id="username" th:text="${session.userId}"></div> <!-- 세션에 저장된 사용자 ID 출력 -->
 
     <div id="calendar"></div>
-    <button class="btn-book" id="btnBook">예약하기</button>
+    <div class="btn"><button class="btn-book" id="btnBook">예약하기</button>	</div>
 
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.0/main.min.js"></script>
@@ -104,3 +126,4 @@
     </script>
 </body>
 </html>
+

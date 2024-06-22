@@ -1,3 +1,37 @@
 @import "reset.css";
+@import "header.css";
 
 
+.wrapper{
+	margin-left: 40px;
+	height: 400px;
+	width: 500px;
+	border: 1px solid;
+}
+
+
+
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+    background-color: lightcoral;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: none;
+    color: #fff;
+}

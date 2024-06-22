@@ -2,9 +2,11 @@ package com.rubypaper.persistance;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.data.repository.query.Param;
 
 import com.rubypaper.Member;
@@ -24,7 +26,7 @@ public interface MemberMapper {
     @Select("SELECT * FROM member WHERE id = #{id}")
     Member getMemberById(String id);
 	
+    @Update("UPDATE member SET name = #{name} WHERE id = #{id}")
+    void updateMember(Member member);
 	
-	
-
 }

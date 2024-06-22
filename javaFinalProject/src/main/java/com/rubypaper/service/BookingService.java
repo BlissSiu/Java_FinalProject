@@ -21,8 +21,18 @@ public class BookingService {
         bookingMapper.insertBooking(bookingDTO);
     }
     
-    @Transactional(readOnly = true)
     public List<BookingDTO> getBookingsByUserId(String userId) {
         return bookingMapper.getBookingsByUserId(userId);
+    }
+    
+    @Transactional
+    public boolean cancelBooking(String userId, String reservedDate) {
+        try {
+            int deletedCount = bookingMapper.deleteBooking(userId, reservedDate);
+            return deletedCount > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

@@ -1,56 +1,42 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="main.css" />
+	<link rel="stylesheet" type="text/css" href="/main.css" />
     <title>Title</title>
 </head>
 <body>
+<div class="wrapper">
 <header>
-    <div class="yuhan--logo">로고</div>
-    <div class="mypage">
-        내 정보
-        <!-- 세션에서 사용자 이름을 Thymeleaf로 출력 -->
-        <span th:text="${session.username} ? ${session.username + ' 님'} : ''"></span>
-    </div>
+        <div class="header"><a href="/main">메인페이지	</a></div>
+        <div class="header">
+            <span class="username" th:text="${session.username} ? ${session.username + ' 님'} : ''">
+			</span>
+			<a href="/myInfo">내정보</a>
+        </div>
+
 </header>
 
 <nav>
-    <ul>
-        <li><a href="/booking">예약하기</a></li>
-        <li><a href="#">예약확인</a></li>
-        <!-- 추가적인 메뉴 아이템들 -->
-    </ul>
+    <div class="container">
+        <ul>
+            <li><a href="/booking">예약하기</a></li>
+            <li><a href="/bookingchecked">예약확인</a></li>
+            <!-- 추가적인 메뉴 아이템들 -->
+        </ul>
+    </div>
 </nav>
 
-<footer>유한 기말</footer>
+<div class="container">
+    <!-- 본문 내용 -->
+</div>
+
+<footer>
+    <div class="container">
+        <!-- 푸터 내용 -->
+    </div>
+</footer>
+</div>
+
 </body>
 </html>
-
-=======
-<!DOCTYPE html>
-<html lang="ko">
-	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="main.css" />
-		<title>Title</title>
-	</head>
-	<body>
-		<header>
-			<div class="yuhan--logo">로고</div>
-			<div class="mypage">내 정보</div>
-		</header>
-		
-		<nav>
-			<ul>
-				<li><a href="#">예약하기</a></li>
-				<li><a href="#">예약확인</a></li>
-				<li><a href="#"></a></li>
-			</ul>
-		</nav>
-	
-		<footer>유한 기말</footer>	
-	</body>
-</html>
->>>>>>> 86e4d4d17d7817123390cc2c137fb9eb8c7c296f

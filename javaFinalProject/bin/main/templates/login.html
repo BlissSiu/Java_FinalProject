@@ -20,12 +20,14 @@
 		   </script>
 	</head>
 	<body>
+
+
 		<div id="message" th:text="${message}" style="display:none;"></div>
 		   <div id="error" th:text="${error}" style="display:none;"></div>
 
 		<div class="wrapper">
 		<header class="login-header">
-			<div class="yuhan--logo">아이콘</div>
+			<div class="yuhan--logo">예약시스템</div>
 		</header>
 		<form action="/login" method="post" class="login-form">
 			<input type="text" name="id" placeholder="이메일 주소" />

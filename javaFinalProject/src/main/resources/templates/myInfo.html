@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>내 정보 수정</title>
+    <!-- 필요한 CSS 파일을 여기에 추가 -->
+    <style>
+        .edit-form {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>내 정보</h2>
+        <hr>
+        <div>
+            <p><strong>ID:</strong> <span th:text="${member.id}"></span></p>
+            <p><strong>이름:</strong>
+                <!-- 수정 가능한 이름 -->
+                <span id="nameText" th:text="${member.name}"></span>
+                <button onclick="editName()">수정하기</button>
+            </p>
+			<p><strong>생년월일:</strong> <span th:text="${member.birth}"></span></p>
+			<p><strong>전화번호:</strong> <span th:text="${member.phone}"></span></p>
+			<p><strong>주소:</strong> <span th:text="${member.address}"></span></p>
+			<p><strong>성별:</strong> <span th:text="${member.gender}"></span></p>
+            <!-- 생년월일, 전화번호, 주소, 성별 등 다른 정보도 동일하게 구현 가능 -->
+            <div id="nameEditForm" class="edit-form">
+                <form action="/updateName" method="post">
+                    <input type="text" id="nameInput" name="name" th:value="${member.name}" />
+                    <button type="submit">저장</button>
+                </form>
+            </div>
+        </div>
+		<button onclick="goToMain()">메인 페이지로</button>
+    </div>
+    
+    <!-- 필요한 JavaScript 파일을 여기에 추가 -->
+    <script>
+        function editName() {
+            var nameText = document.getElementById('nameText');
+            var nameInput = document.getElementById('nameInput');
+            var nameEditForm = document.getElementById('nameEditForm');
+            
+            nameText.style.display = 'none';
+            nameInput.value = nameText.textContent.trim();
+            nameEditForm.style.display = 'block';
+        }
+		function goToMain() {
+		            window.location.href = '/main'; // 메인 페이지 URL로 리다이렉트
+		        }
+    </script>
+</body>
+</html>
