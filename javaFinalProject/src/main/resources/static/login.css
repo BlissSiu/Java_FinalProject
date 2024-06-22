@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import "reset.css";
 
 .wrapper{
@@ -37,4 +38,45 @@
 
 footer {
 	text-align: center;
+=======
+@import "reset.css";
+
+.wrapper{
+	width: 800px;
+}
+
+.yuhan--logo {
+	margin-top: 90px;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.login-form {
+	display: flex;
+	flex-direction: column;
+	margin: 0px 30px;
+}
+
+.login-form input {
+	padding: 15px 10px;
+	margin: 5px 0px;
+	font-size: 18px;
+	border: lightgrey 1px solid;
+}
+
+.login-form div {
+	border-top: 1px solid lightgray;
+	padding: 20px 0px;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.login-form a {
+	color: blue;
+}
+
+
+footer {
+	text-align: center;
+>>>>>>> 86e4d4d17d7817123390cc2c137fb9eb8c7c296f
 }

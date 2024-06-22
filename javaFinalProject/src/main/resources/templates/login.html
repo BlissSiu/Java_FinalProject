@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
@@ -35,4 +36,43 @@
 		</form>
 		</div>
 	</body>
+=======
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="/login.css" />
+		<title>login page</title>
+		<script>
+		       document.addEventListener("DOMContentLoaded", function() {
+				   const messageElement = document.getElementById('message');
+				   const errorElement = document.getElementById('error');
+				
+				   if (messageElement && messageElement.textContent) {
+				       alert(messageElement.textContent);
+				   }
+				
+				   if (errorElement && errorElement.textContent) {
+				       alert(errorElement.textContent);
+					   }
+				   });
+		   </script>
+	</head>
+	<body>
+		<div id="message" th:text="${message}" style="display:none;"></div>
+		   <div id="error" th:text="${error}" style="display:none;"></div>
+
+		<div class="wrapper">
+		<header class="login-header">
+			<div class="yuhan--logo">아이콘</div>
+		</header>
+		<form action="/login" method="post" class="login-form">
+			<input type="text" name="id" placeholder="이메일 주소" />
+			<input type"password" name="pw" placeholder="비밀번호"/>
+			<input type="submit" value="로그인" />
+			<div>아직 회원이 아니신가요? <a href="/signup">회원가입</a></div>
+		</form>
+		</div>
+	</body>
+>>>>>>> 86e4d4d17d7817123390cc2c137fb9eb8c7c296f
 </html>

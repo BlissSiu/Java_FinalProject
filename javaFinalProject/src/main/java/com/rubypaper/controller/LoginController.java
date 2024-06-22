@@ -10,6 +10,24 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.rubypaper.dto.LoginDTO;
 import com.rubypaper.service.MemberService;
 
+<<<<<<< HEAD
+import jakarta.servlet.http.HttpServletRequest;
+
+
+@Controller
+public class LoginController {
+
+    @Autowired
+    private MemberService memberService;
+
+    @PostMapping("/login")
+    public String login(@ModelAttribute LoginDTO loginDTO, HttpServletRequest request, RedirectAttributes redirectAttributes) {
+        try {
+            boolean loginSuccess = memberService.login(loginDTO, request, redirectAttributes);
+            if (loginSuccess) {
+                return "redirect:/main";
+            } else {
+=======
 @Controller
 public class LoginController {
 	
@@ -30,6 +48,7 @@ public class LoginController {
                 return "redirect:/main";
             } else {
                 redirectAttributes.addFlashAttribute("error", "아이디 또는 비밀번호가 일치하지 않습니다.");
+>>>>>>> 86e4d4d17d7817123390cc2c137fb9eb8c7c296f
                 return "redirect:/login";
             }
         } catch (Exception e) {

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예약 페이지</title>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.0/main.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #calendar {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .btn-book {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .fc-highlight {
+            background-color: rgba(0, 123, 255, 0.3);
+        }
+        #username {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>예약 페이지</h1>
+    <div id="username" th:text="${session.userId}"></div> <!-- 세션에 저장된 사용자 ID 출력 -->
+
+    <div id="calendar"></div>
+    <button class="btn-book" id="btnBook">예약하기</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.0/main.min.js"></script>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        document.addEventListener('DOMContentLoaded', function() {
+            var selectedDate;
+            var userId = /*[[${session.userId}]]*/ ''; // Thymeleaf를 사용해 세션에서 사용자 ID를 가져옴
+
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                selectable: true,
+                selectAllow: function(selectInfo) {
+                    var now = new Date();
+                    var selectDate = new Date(selectInfo.startStr);
+                    // 과거 날짜는 선택할 수 없도록 설정
+                    return selectDate >= now;
+                },
+                select: function(info) {
+                    calendar.removeAllEventSources();
+                    calendar.addEventSource({
+                        events: [{
+                            start: info.start,
+                            end: info.end,
+                            rendering: 'background',
+                            className: 'fc-highlight'
+                        }]
+                    });
+                    selectedDate = info.startStr;
+                },
+                // 드래그로 다중 선택을 막습니다.
+                selectAllowLongPress: false
+            });
+            calendar.render();
+
+            document.getElementById('btnBook').addEventListener('click', function() {
+                if (!selectedDate) {
+                    alert('예약할 날짜를 먼저 선택해주세요.');
+                    return;
+                }
+
+                var data = JSON.stringify({
+                    reservedDate: selectedDate,
+                    userId: userId
+                });
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/book', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            alert('예약이 성공적으로 완료되었습니다.');
+                            window.location.href = '/main'; // main.html로 이동
+                        } else {
+                            alert('예약 과정에서 오류가 발생했습니다.');
+                        }
+                    }
+                };
+                xhr.send(data);
+            });
+        });
+        /*]]>*/
+    </script>
+</body>
+</html>
