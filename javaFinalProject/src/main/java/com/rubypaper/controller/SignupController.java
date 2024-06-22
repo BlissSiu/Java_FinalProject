@@ -26,8 +26,8 @@ public class SignupController {
 	}
 	
 	@PostMapping("/join")
-	public String joinMember(@ModelAttribute MemberDTO memberDTO) {
-		memberService.registerMember(memberDTO);
+	public String joinMember(@ModelAttribute Member member) {
+		memberService.insertMember(member);
 		
 		 return "redirect:/signup";
 	}

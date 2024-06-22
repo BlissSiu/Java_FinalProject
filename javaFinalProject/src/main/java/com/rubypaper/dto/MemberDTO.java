@@ -14,4 +14,6 @@ public class MemberDTO {
     private String month;
     private String day;
     private String address;
+    
+    
 }
