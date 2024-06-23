@@ -2,6 +2,7 @@ package com.rubypaper;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
@@ -9,7 +10,7 @@ import lombok.Data;
 @Data
 public class Booking {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int bookingid;
 	private String reserved_date;
 	private String id;

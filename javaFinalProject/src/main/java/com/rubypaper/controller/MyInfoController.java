@@ -47,6 +47,8 @@ public class MyInfoController {
         // Member 정보 업데이트
         memberMapper.updateMember(member);
         
+        session.setAttribute("username", member.getName());
+        
         // 사용자에게 메시지 전달
         redirectAttributes.addFlashAttribute("message", "이름이 성공적으로 수정되었습니다.");
 
